@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <meta name="theme-color" content="#090909">
+  <title>ORA KASINO — Setting Jackpot Member</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-crown">♛</div>
+        <div class="brand-name">ORA KASINO</div>
+      </div>
+      <nav class="nav-menu" aria-label="Navigasi utama">
+        <a href="#" class="nav-item"><span class="nav-icon">⌂</span><span>Dashboard</span></a>
+        <a href="#" class="nav-item"><span class="nav-icon">♟</span><span>Data Member</span></a>
+        <a href="#" class="nav-item active"><span class="nav-icon">🏆</span><span>Setting Jackpot</span></a>
+        <a href="#" class="nav-item"><span class="nav-icon">⇄</span><span>Transaksi</span></a>
+        <a href="#" class="nav-item"><span class="nav-icon">▣</span><span>Withdraw</span></a>
+        <a href="#" class="nav-item"><span class="nav-icon">▥</span><span>Laporan</span></a>
+        <a href="#" class="nav-item"><span class="nav-icon">⚙</span><span>Pengaturan</span></a>
+        <a href="#" class="nav-item"><span class="nav-icon">⇥</span><span>Logout</span></a>
+      </nav>
+      <div class="sidebar-art"></div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Buka menu">☰</button>
+        <div class="admin-title"><span class="shield">✦</span> ADMIN PANEL</div>
+        <button class="admin-profile" id="profileButton" type="button">
+          <span class="avatar">●</span>
+          <span class="profile-copy"><b>admin</b><small><i></i> Online</small></span>
+          <span class="chevron">⌄</span>
+        </button>
+      </header>
+
+      <section class="content">
+        <section class="hero-banner">
+          <div class="hero-icon">🏆</div>
+          <div class="hero-copy">
+            <h1>SETTING JACKPOT MEMBER</h1>
+            <p>Kelola pengaturan jackpot untuk akun member dengan mudah dan cepat.</p>
+          </div>
+          <div class="hero-treasure" aria-hidden="true">
+            <span class="coin coin-one">◉</span><span class="coin coin-two">◉</span>
+            <span class="hero-crown">♛</span><span class="coin coin-three">◉</span>
+          </div>
+        </section>
+
+        <section class="top-grid">
+          <article class="panel form-panel">
+            <div class="panel-heading"><span>⚙</span><h2>Form Pengaturan Jackpot</h2></div>
+            <form id="jackpotForm" autocomplete="off">
+              <input type="hidden" id="editingId">
+              <div class="form-row">
+                <label for="whatsapp">Nomor WhatsApp</label>
+                <div class="input-wrap"><span class="input-icon">♟</span><input id="whatsapp" type="tel" inputmode="numeric" maxlength="16" placeholder="Masukkan nomor WhatsApp member..." required></div>
+              </div>
+              <div class="form-row">
+                <label for="jackpotType">Jenis Jackpot</label>
+                <div class="input-wrap"><span class="input-icon">🏆</span><select id="jackpotType" required><option value="Jackpot Utama">Jackpot Utama</option><option value="Jackpot Harian">Jackpot Harian</option><option value="Jackpot Mingguan">Jackpot Mingguan</option><option value="Jackpot Bulanan">Jackpot Bulanan</option></select><span class="select-arrow">⌄</span></div>
+              </div>
+              <div class="form-row">
+                <label for="amount">Nominal Deposit</label>
+                <div class="input-wrap"><span class="input-icon">Rp</span><input id="amount" type="text" inputmode="numeric" placeholder="100,000.00" required></div>
+              </div>
+              <div class="form-row">
+                <label for="status">Status</label>
+                <div class="input-wrap"><span class="input-icon">✓</span><select id="status" required><option>Aktif</option><option>Nonaktif</option><option>Pending</option><option>Berhasil</option><option>Ditolak</option></select><span class="select-arrow">⌄</span></div>
+              </div>
+              <div class="form-actions">
+                <button class="btn btn-gold" id="submitButton" type="submit"><span>▣</span> SIMPAN / AJUKAN</button>
+                <button class="btn btn-reset" id="resetButton" type="button"><span>⟲</span> RESET</button>
+              </div>
+              <p class="form-hint" id="formHint">Isi data member untuk membuat pengajuan jackpot baru.</p>
+            </form>
+          </article>
+
+          <article class="panel info-panel">
+            <div class="panel-heading gold-heading"><span>▥</span><h2>Informasi Jackpot</h2></div>
+            <div class="stats-grid">
+              <div class="stat-card stat-gold"><div class="stat-icon">🏆</div><div class="stat-label">Total Pengajuan</div><strong id="totalCount">0</strong></div>
+              <div class="stat-card stat-blue"><div class="stat-icon">♟</div><div class="stat-label">Pengajuan Aktif</div><strong id="activeCount">0</strong></div>
+              <div class="stat-card stat-green"><div class="stat-icon">✧</div><div class="stat-label">Jackpot Hari Ini</div><strong id="todayTotal">Rp 0.00</strong></div>
+            </div>
+            <div class="history-heading"><div><span>★</span> Riwayat Pengaturan Jackpot</div><button id="viewAllButton" type="button">Lihat Semua <b>›</b></button></div>
+            <div class="history-list" id="historyList"><div class="empty-history">Belum ada riwayat pengajuan.</div></div>
+          </article>
+        </section>
+
+        <section class="panel table-panel">
+          <div class="table-toolbar">
+            <div class="table-title">DATA PENGAJUAN JACKPOT</div>
+            <div class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Cari nomor WhatsApp..."></div>
+          </div>
+          <div class="table-scroll">
+            <table>
+              <thead><tr><th>No</th><th>WhatsApp</th><th>Jenis Jackpot</th><th>Nominal Deposit</th><th>Status</th><th>Tanggal &amp; Waktu</th><th>Aksi</th></tr></thead>
+              <tbody id="dataBody"><tr><td colspan="7" class="empty-table">Belum ada data pengajuan. Silakan isi form di atas.</td></tr></tbody>
+            </table>
+          </div>
+          <div class="table-footer">
+            <span id="tableInfo">Menampilkan 0 data</span>
+            <div class="pagination"><button id="prevPage" aria-label="Halaman sebelumnya">‹</button><span id="pageNumber">1</span><button id="nextPage" aria-label="Halaman berikutnya">›</button></div>
+          </div>
+        </section>
+        <footer class="footer-note">© <span id="year"></span> ORA KASINO ADMIN PANEL <span>•</span> Premium Management Interface</footer>
+      </section>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
